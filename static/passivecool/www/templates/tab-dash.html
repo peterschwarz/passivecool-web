@@ -1,0 +1,54 @@
+<ion-view title="Dashboard">
+  <ion-content class="padding">
+    <div class="card">
+      <div class="list">
+
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-ios7-sunny"></i>
+        Temperature
+          <span class="badge badge-positive">{{status.temperature}}</span>
+      </a>
+
+      <a class="item item-icon-left" href="#">
+          <i class="icon ion-ios7-cloud"></i>
+          Humidity
+          <span class="badge badge-positive">{{status.humidity}}</span>
+      </a>
+
+      <a class="item item-icon-left" href="#">
+          <i class="icon ion-ios7-lightbulb"></i>
+          Light Level
+          <span class="badge badge-positive">{{status.light_level}}</span>
+      </a>
+
+      <a class="item item-icon-left" href="#">
+          <i class="icon ion-code-working"></i>
+          Position
+          <span class="badge badge-positive">{{position}}</span>
+      </a>
+
+      <ul class="list padding-top">
+          <li class="item item-toggle">
+             Manual Override
+             <label class="toggle toggle-balanced">
+               <input type="checkbox" ng-model="manual_override">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+             </label>
+          </li>
+          <li ng-show="manual_override">
+              <div class="item range range-positive">
+                <i class="icon ion-ios7-sunny-outline"></i>
+                <input type="range" name="volume" min="0" max="90" value="0" ng-model="position">
+                <i class="icon ion-ios7-sunny"></i>
+              </div>
+          </li>
+      </ul>
+      <!--<div class="item item-divider">-->
+        <!--I'm a Footer in a Card!-->
+      <!--</div>-->
+    </div>
+    <!--<h1>{{ status.temperature}}</h1>-->
+  </ion-content>
+</ion-view>
