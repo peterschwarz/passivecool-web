@@ -37,12 +37,14 @@
                </div>
              </label>
           </li>
+      </ul>
+      <ul>
           <li ng-show="manualOverride.isEnabled">
               <div class="item range range-positive">
-                <i class="icon ion-ios7-sunny-outline"></i>
+                <i class="icon ion-ios7-sunny"></i>
                 <input type="range" name="volume" min="0" max="90" value="0" ng-model="manualOverride.position"
                     on-release="positionChanged()">
-                <i class="icon ion-ios7-sunny"></i>
+                <i class="icon ion-ios7-sunny-outline"></i>
               </div>
           </li>
       </ul>

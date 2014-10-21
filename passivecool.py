@@ -11,6 +11,7 @@ import random
 from flask import Flask
 from flask import abort, redirect
 from flask.ext import restful
+from flask.ext.restful import reqparse
 
 app = Flask(__name__, static_url_path='/www', static_folder='./static/passivecool/www' )
 api = restful.Api(app)
@@ -35,9 +36,14 @@ class StatusApi(restful.Resource):
         print json
         return json
 
-    def put(self, position):
-        #resp = requests.get('http://passivecool.local/arduino/state/%s' % position)
-        print position
+    def put(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('position', type=int, help='Angle to set the blinds 0-90')
+        req = parser.parse_args()
+        if args.get('--mock_arduino'):
+            print "Changing position to %s" % req['position']
+        else:
+            resp = requests.get('http://passivecool.local/arduino/state/%s' % req['position'])
         return {}
 
 
